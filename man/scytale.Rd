@@ -4,14 +4,14 @@
 \alias{scytale}
 \title{scytale}
 \usage{
-scytale(word, key, decrypt = FALSE)
+scytale(word, key = 3, encrypt = TRUE)
 }
 \arguments{
 \item{word}{Word or phrase to be encrypted or decrypted}
 
 \item{key}{Number of turns of the band}
 
-\item{decrypt}{If `FALSE` (default), the program ciphers the input word, If `TRUE`, the program decrypts it.}
+\item{encrypt}{If `TRUE` (default), the program ciphers the input word, If `FALSE`, the program decrypts it.}
 }
 \value{
 a string

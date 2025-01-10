@@ -18,7 +18,7 @@ a string
 }
 \description{
 In a columnar transposition cipher, the message is written out in rows of a fixed length,
- and then read out again column by column. The order of the column follows the alphabetcial order of the letters present in the key
+ and then read out again column by column. The order of the column follows the alphabetical order of the letters present in the key
 }
 \examples{
 singlecolumn("This is wikipedia", "cipher")

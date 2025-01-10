@@ -4,7 +4,7 @@
 \alias{affine}
 \title{affine}
 \usage{
-affine(word, a, b, decrypt = FALSE)
+affine(word, a, b, encrypt = TRUE)
 }
 \arguments{
 \item{word}{Word or phrase to be encrypted}
@@ -13,7 +13,7 @@ affine(word, a, b, decrypt = FALSE)
 
 \item{b}{Second parameter. Magnitude of the shift}
 
-\item{decrypt}{If `FALSE` (default), the program ciphers the input word, If `TRUE`, the program decrypts it.}
+\item{encrypt}{If `TRUE` (default), the program ciphers the input word, If `FALSE`, the program decrypts it.}
 }
 \value{
 a string

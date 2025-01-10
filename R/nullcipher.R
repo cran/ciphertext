@@ -5,7 +5,7 @@
 #'
 #' @param phrase Word or phrase to be decrypted
 #' @param index letter of interest for each word in the phrase. Also a pattern vector can be entered.
-#' @param decrypt Only Decryption is possible for now, but will be updated in the future
+#' @param encrypt Only Decryption is possible for now, but will be updated in the future
 #' 
 #' @return a string
 #' @export
@@ -16,7 +16,7 @@
 #' @references https://en.wikipedia.org/wiki/Null_cipher
 #'
 
-nullcipher <- function(phrase, index,  decrypt = TRUE) {
+nullcipher <- function(phrase, index,  encrypt = FALSE) {
   
   terms <- unlist(strsplit(phrase,"[[:space:]]"))
   

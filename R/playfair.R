@@ -6,19 +6,20 @@
 #' @param word Word or phrase to be encrypted or decrypted
 #' @param key Word for creating the modified Polybius square
 #' @param added_letter Letter to be added in case two letters of a pair are identical; usually "x" is used
-#' @param decrypt  If `FALSE` (default), the program ciphers the input word, If `TRUE`, the program decrypts it.
+#'
+#' @inheritParams affine
 #' 
 #' @return a string
 #' @export
 #'
 #' @examples
 #' playfair( "instruments", "monarchy", added_letter = "z")
-#' playfair("gatlmzclrqtx", "monarchy", added_letter = "z", decrypt = TRUE)
+#' playfair("gatlmzclrqtx", "monarchy", added_letter = "z", encrypt = FALSE)
 #' 
 #' @references https://en.wikipedia.org/wiki/Playfair_cipher
 #'
 
-playfair <- function(word, key, added_letter = "x", decrypt = FALSE) {
+playfair <- function(word, key = "", added_letter = "x", encrypt = TRUE) {
   # Exclude j from both letter and alphabet
   key0j <- PrepCyp.w(key)
   
@@ -63,12 +64,12 @@ playfair <- function(word, key, added_letter = "x", decrypt = FALSE) {
     new2$col <- l1$col
   } else  if (l1$row == l2$row) {
     new1$row <- new2$row <- l1$row
-    new1$col <- ifelse(decrypt == FALSE, (l1$col%%5) +1, (l1$col-1) + 5*(l1$col==1))
-    new2$col <- ifelse(decrypt == FALSE, (l2$col%%5) +1, (l2$col-1) + 5*(l2$col==1))
+    new1$col <- ifelse(encrypt == TRUE, (l1$col%%5) +1, (l1$col-1) + 5*(l1$col==1))
+    new2$col <- ifelse(encrypt == TRUE, (l2$col%%5) +1, (l2$col-1) + 5*(l2$col==1))
   } else if (l1$col == l2$col) {
     new1$col <- new2$col <- l1$col
-    new1$row <- ifelse(decrypt == FALSE, (l1$row%%5) +1, (l1$row-1) + 5*(l1$row==1))
-    new2$row <- ifelse(decrypt == FALSE, (l2$row%%5) +1, (l2$row-1) + 5*(l2$row==1))
+    new1$row <- ifelse(encrypt == TRUE, (l1$row%%5) +1, (l1$row-1) + 5*(l1$row==1))
+    new2$row <- ifelse(encrypt == TRUE, (l2$row%%5) +1, (l2$row-1) + 5*(l2$row==1))
   }
   
   out[i]   <- matpol[new1$row, new1$col]

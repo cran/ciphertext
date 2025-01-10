@@ -1,7 +1,7 @@
 #' @title singlecolumn
 #'
 #' @description In a columnar transposition cipher, the message is written out in rows of a fixed length,
-#'  and then read out again column by column. The order of the column follows the alphabetcial order of the letters present in the key
+#'  and then read out again column by column. The order of the column follows the alphabetical order of the letters present in the key
 #'
 #' @param word Word or phrase to be encrypted
 #' @param key word key: for example, the key "bcea" suggests that the column order is "2-3-4-1"

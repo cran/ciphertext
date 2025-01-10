@@ -1,9 +1,9 @@
 PrepCyp.w("çìAò ai NON asci agli spazi e alle MAIUSCOLE")
 
-caesar("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG", 23)
+caesar("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG", 23, encrypt = TRUE)
 
 vigenere("geeks for geeks", "ayush")
-vigenere("gcyczfmlyleim", "ayush", decrypt = TRUE)
+vigenere("gcyczfmlyleim", "ayush", encrypt = FALSE)
 
 ssub<- simple_substitution("flee at once we are discovered", "zebras")
 class(ssub) # class cipher

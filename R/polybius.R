@@ -6,26 +6,27 @@
 #'
 #' @param input Word or phrase to be encrypted,
 #'  or character vector with the sequence of coordinate numbers if we need to decrypt
-#' @param decrypt If `FALSE` (default), the program ciphers the input word, If `TRUE`, the program decrypts it.
+#'  
+#' @inheritParams affine
 #' 
 #' @return a string
 #' @export
 #'
 #' @examples
 #' polybius("hello world")
-#' polybius("23 15 31 31 34 52 34 42 31 14", decrypt = TRUE)
+#' polybius("23 15 31 31 34 52 34 42 31 14", encrypt = TRUE)
 #' 
 #' @references https://en.wikipedia.org/wiki/Polybius_square
 #'
 
-polybius <- function(input, decrypt = FALSE) {
+polybius <- function(input, encrypt = TRUE) {
   
   # prepare polybius square without "j"
   pol_letters <- subset(letters, letters != "j")
   matpol <- matrix(pol_letters, nrow = 5, byrow = TRUE)
   out <- c()
   
-  if (decrypt == FALSE) {
+  if (encrypt == TRUE) {
   w0a <- PrepCyp.w(input)
   w0 <- ifelse(w0a == "j", "i", w0a) #transform j in i in input word
   
@@ -35,7 +36,7 @@ polybius <- function(input, decrypt = FALSE) {
    }
   }
   
-  if (decrypt == TRUE) {
+  if (encrypt == FALSE) {
     coords <- unlist(strsplit(input," "))
     row <- as.numeric(substr(coords, start= 1, stop = 1))
     col <- as.numeric(substr(coords, start= 2, stop = 2))

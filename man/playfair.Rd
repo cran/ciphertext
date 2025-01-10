@@ -4,7 +4,7 @@
 \alias{playfair}
 \title{playfair}
 \usage{
-playfair(word, key, added_letter = "x", decrypt = FALSE)
+playfair(word, key = "", added_letter = "x", encrypt = TRUE)
 }
 \arguments{
 \item{word}{Word or phrase to be encrypted or decrypted}
@@ -13,7 +13,7 @@ playfair(word, key, added_letter = "x", decrypt = FALSE)
 
 \item{added_letter}{Letter to be added in case two letters of a pair are identical; usually "x" is used}
 
-\item{decrypt}{If `FALSE` (default), the program ciphers the input word, If `TRUE`, the program decrypts it.}
+\item{encrypt}{If `TRUE` (default), the program ciphers the input word, If `FALSE`, the program decrypts it.}
 }
 \value{
 a string
@@ -24,7 +24,7 @@ The Playfair cipher is a symmetric method which encrypts pairs of letters
 }
 \examples{
 playfair( "instruments", "monarchy", added_letter = "z")
-playfair("gatlmzclrqtx", "monarchy", added_letter = "z", decrypt = TRUE)
+playfair("gatlmzclrqtx", "monarchy", added_letter = "z", encrypt = FALSE)
 
 }
 \references{

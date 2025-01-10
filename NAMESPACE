@@ -2,6 +2,7 @@
 
 export(affine)
 export(atbash)
+export(bifid_delastelle)
 export(caesar)
 export(nullcipher)
 export(playfair)
@@ -10,4 +11,5 @@ export(railfence)
 export(scytale)
 export(simple_substitution)
 export(singlecolumn)
+export(trifid_delastelle)
 export(vigenere)

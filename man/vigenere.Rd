@@ -4,14 +4,14 @@
 \alias{vigenere}
 \title{vigenere}
 \usage{
-vigenere(word, key, decrypt = FALSE)
+vigenere(word, key, encrypt = TRUE)
 }
 \arguments{
 \item{word}{Word or phrase to be encrypted}
 
 \item{key}{character key}
 
-\item{decrypt}{If `FALSE` (default), the program ciphers the input word, If `TRUE`, the program decrypts it.}
+\item{encrypt}{If `TRUE` (default), the program ciphers the input word, If `FALSE`, the program decrypts it.}
 }
 \value{
 a string

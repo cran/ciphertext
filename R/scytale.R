@@ -5,7 +5,8 @@
 #'
 #' @param word Word or phrase to be encrypted or decrypted
 #' @param key Number of turns of the band
-#' @param decrypt If `FALSE` (default), the program ciphers the input word, If `TRUE`, the program decrypts it.
+#' 
+#' @inheritParams affine
 #' 
 #' @return a string
 #' @export
@@ -16,7 +17,7 @@
 #' @references https://en.wikipedia.org/wiki/Scytale
 #'
 
-scytale <- function(word, key, decrypt = FALSE) {
+scytale <- function(word, key = 3, encrypt = TRUE) {
   w0 <- PrepCyp.w(word)
   
   length(w0)
@@ -24,7 +25,7 @@ scytale <- function(word, key, decrypt = FALSE) {
   mat <- matrix("",nrow = length(w0), ncol = key)
   mat <- t(mat)
   
-  if (decrypt ==FALSE) {
+  if (encrypt == TRUE) {
     
     j<-1
     for (i in (1: length(w0))) {
@@ -35,7 +36,7 @@ scytale <- function(word, key, decrypt = FALSE) {
     final<- paste(t(mat), collapse = "")
   }
   
-  if (decrypt == TRUE) {
+  if (encrypt == FALSE) {
   j<-1
   for (i in (1: length(w0))) {
     mat[j,i] = "X"#w0[i]

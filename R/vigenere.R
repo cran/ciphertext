@@ -5,8 +5,9 @@
 #'
 #' @param word Word or phrase to be encrypted
 #' @param key character key
-#' @param decrypt  If `FALSE` (default), the program ciphers the input word, If `TRUE`, the program decrypts it.
 #' 
+#' @inheritParams affine
+#'  
 #' @return a string
 #' @export
 #'
@@ -16,7 +17,7 @@
 #' @references https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
 #'
 
-vigenere <- function(word, key, decrypt = FALSE) {
+vigenere <- function(word, key, encrypt = TRUE) {
   
   w0 <- PrepCyp.w(word)
   k0 <- PrepCyp.w(key)
@@ -33,7 +34,7 @@ vigenere <- function(word, key, decrypt = FALSE) {
   for (i in (1: length(w0))) {
     pos <- which(w0[i] == letters)
     knum <- which(k1[i] == letters) - 1
-    newpos<- pos + ifelse(decrypt == FALSE , knum, -knum)
+    newpos<- pos + ifelse(encrypt == TRUE , knum, -knum)
     
     finalpos0 <- ifelse(newpos>length(letters), newpos - length(letters), newpos) # correcting values >26
     finalpos <- ifelse(finalpos0 < 1, finalpos0+length(letters), finalpos0)       # correcting values <0

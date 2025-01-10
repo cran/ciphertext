@@ -7,7 +7,7 @@
 #' @param word Word or phrase to be encrypted
 #' @param a First parameter. This value and 26 must be coprime
 #' @param b Second parameter. Magnitude of the shift
-#' @param decrypt If `FALSE` (default), the program ciphers the input word, If `TRUE`, the program decrypts it.
+#' @param encrypt If `TRUE` (default), the program ciphers the input word, If `FALSE`, the program decrypts it.
 #' 
 #' @return a string
 #' @export
@@ -18,7 +18,7 @@
 #' @references https://en.wikipedia.org/wiki/Affine_cipher
 #'
 
-affine <- function(word, a, b, decrypt = FALSE) {
+affine <- function(word, a, b, encrypt = TRUE) {
   
   # Check if a,x are coprime
   
@@ -37,7 +37,7 @@ affine <- function(word, a, b, decrypt = FALSE) {
   out <- character(length(w0))
   for (i in (1: length(w0))) {
     pos <- which(w0[i] == letters)-1
-    newpos<- ifelse(decrypt == FALSE, (a*pos + b)%%26, ((pos-b)/a)%%26)
+    newpos<- ifelse(encrypt == TRUE, (a*pos + b)%%26, ((pos-b)/a)%%26)
 
     out[i] = letters[newpos+1]
   }

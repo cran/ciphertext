@@ -15,7 +15,7 @@
 #' @references https://en.wikipedia.org/wiki/Rail_fence_cipher
 #'
 
-railfence <- function(word, key) {
+railfence <- function(word, key = 3) {
   w0 <- PrepCyp.w(word)
   
   length(w0)

@@ -4,14 +4,14 @@
 \alias{nullcipher}
 \title{nullcipher}
 \usage{
-nullcipher(phrase, index, decrypt = TRUE)
+nullcipher(phrase, index, encrypt = FALSE)
 }
 \arguments{
 \item{phrase}{Word or phrase to be decrypted}
 
 \item{index}{letter of interest for each word in the phrase. Also a pattern vector can be entered.}
 
-\item{decrypt}{Only Decryption is possible for now, but will be updated in the future}
+\item{encrypt}{Only Decryption is possible for now, but will be updated in the future}
 }
 \value{
 a string

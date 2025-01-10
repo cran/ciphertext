@@ -4,7 +4,7 @@
 \alias{railfence}
 \title{railfence}
 \usage{
-railfence(word, key)
+railfence(word, key = 3)
 }
 \arguments{
 \item{word}{Word or phrase to be encrypted}
